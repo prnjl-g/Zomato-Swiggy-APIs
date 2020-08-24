@@ -1,0 +1,25 @@
+1. How to run this application.
+
+1. Set docker for sql server - https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash
+run - dotnet tool install --global dotnet-ef --version 3.0.0
+run - dotnet ef migrations add AddedSeedMethodForProjectManager
+run - dotnet ef database update,
+check docker database, it should been updated with the required model. 
+2. First default role and user is created that is ProjectAdmin which have permission to create role and user,
+3. UserManagement Controller has the API to create user user and role.
+run application 
+4. Open postman Hit - https://localhost:5001/api/usermanagement/login
+{
+	"Password": "Admin@123",
+	"UserName": "ProjectAdmin"
+}
+5. Copy bearer token. add in the header hit the 
+https://localhost:5001/api/issue/
+response : 
+[
+    {
+        "id": 1
+    }
+]
+6. Now Implement all the methods
+
